@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class ="starter-template" style="padding: 40px">
+        <div class="text-center" >
+            {% if prediction == 'positive' %}
+            <h3 style="color:red;">Positive</h3>
+            {% elif prediction == 'negative' %}
+            <h3 style="color:blue;">Negative</h3>
+            {% elif prediction == 'neutral' %}
+            <h3 style="color:green;">Neutral</h3>
+            {% endif %}
+        </div>
+        <div>
+            </br>
+            <h4>Исходный текст</h4>
+            <p>{{text}}</p>
+            </br>
+            <h4>Предобработанный текст</h4>
+            <p>{{stemmed}}</p>
+            <h4>Топ-5 признаков: </h4>
+            <p>{% for i in top %}</p>
+            <ul>
+                <li>{{i}}</li>
+            </ul>
+            {% endfor %}
+            </br>
+            <p>Время обработки запроса: <span style="color:#0091EA;">{{ final_time }} </span></p>
+        </div>
+    </div>
+</body>
+</html>
